@@ -25,13 +25,13 @@ public class InstituteRepository extends GenericRepository {
 	}
 	
 	@Transactional
-	public  Institute verify(String adharNo,String password) {
+	public  Institute verify(String instituteCode,String password) {
 		Institute inst;
-		Query q=em.createQuery("from Institute as  t where t.instituteCode=?1 and s.password=?2 ");
-		q.setParameter(1, adharNo);
+		Query q=em.createQuery("from Institute as  t where t.instituteCode=?1 and t.password=?2 ");
+		q.setParameter(1, instituteCode);
 		q.setParameter(2, password);
-		System.out.println("student repository called");
-		System.out.println(adharNo);
+		System.out.println("institute repository called");
+		System.out.println(instituteCode);
 		System.out.println(password);
 		try {
 		inst=(Institute)q.getSingleResult();
